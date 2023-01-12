@@ -1,8 +1,9 @@
 import csv
 from pprint import pprint
 
+# Turn it from this
 EINSTEIN_CSV = 'Albert,Einstein,1879-03-14,1955-04-18,Germany,"for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect",physics,1921'
-
+# into this
 EINSTEIN = {
     "birthplace": "Germany",
     "name": "Albert",
@@ -12,11 +13,13 @@ EINSTEIN = {
     "motivation": "for his services to Theoretical Physics...",
 }
 
+# with closes the file as soon as it is done with it
 with open("laureates.csv", "r") as f:
     reader = csv.DictReader(f)
     laureates = list(reader)
 
 for laureate in laureates:
-    if laureate["surname"] == "Einstein":
+    if laureate["surname"] == "Tinbergen":
         pprint(laureate)
+        print(laureate)
         break

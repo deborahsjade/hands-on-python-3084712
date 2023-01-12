@@ -21,7 +21,12 @@ for laureate in laureates:
     if laureate["surname"] == "Einstein":
         pprint(laureate)
         print("============")
-        year_date = datetime.strptime(laureate["year"], "%Y")
+        laureate_date = datetime.strptime(laureate["year"], "%Y")
         born_date = datetime.strptime(laureate["born"], "%Y-%m-%d")
-        print("age", year_date.year - born_date.year)
+        died_date = datetime.strptime(laureate["died"], "%Y-%m-%d")
+        now_date = datetime.now()
+        print("age when awarded prize:", laureate_date.year - born_date.year)
+        print("years since he was born:", now_date.year - born_date.year)
+        print("years since he won:", now_date.year - laureate_date.year)
+        print("age when he died:", died_date.year - born_date.year)
         break
